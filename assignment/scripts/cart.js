@@ -4,6 +4,7 @@ console.log('***** Cart Functions *****');
 
 //- Create a global variable named `basket` and set it to an empty array.
 let basket = [];
+console.log(basket);
 
 //Create a function called `addItem`. It should:
 //- take an input parameter for a string `item`
@@ -18,7 +19,7 @@ function addItem(item){
 console.log(addItem('milk'));
 console.log(addItem('orange juice'));
 console.log(addItem('cheese'));
-console.log(basket)
+console.log("these items were added to cart:", basket)
 
 //- Create a function called `listItems`. It should:
  // - loop over the items in the `basket` array
@@ -39,4 +40,4 @@ function empty( ){
     }
 
 empty(); 
-console.log(basket);
+console.log("This is now what's in the cart:", basket);
