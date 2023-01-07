@@ -59,8 +59,6 @@ console.log("-----Stretch Goals-----")
 
 //Using functions in other functions!
 
-
-
 //6. Create a function called isFull(). It should:
 //return false if the basket contains less than max number of items
 //return true otherwise (equal or more than maxItems)
@@ -90,6 +88,7 @@ console.log("Is the cart full now?", isFull(basket));
 //If an item was added to the array, return true
 //If there was no room and the item could not be added return false
 
+console.log("7. addItem");
 function addItem(item){
 //Use the isFull function to prevent more than maxItems from being added to the basket.
     if(isFull(basket) === false) {
@@ -107,31 +106,34 @@ function addItem(item){
 addItem("pancake mix"); 
 
 console.log("Is the cart full now?", isFull(basket));
-console.log("Removed this item:", basket.pop());
+console.log("Removed this item:", basket.pop("eggs"));
 console.log("Is the cart full now?", isFull(basket));
 console.log("Can I add something else now?", addItem("pancake mix"));
+console.log("Cart is now", basket);
 
 
 //Using Array built-in functions!
 
 //8. Create a function called removeItem. It should:
+//Take an input parameter for a string item
+//Use Array.indexOf to find the index of the first matching item in the basket.
+//Use Array.splice to remove the first matching item from the basket.
+//Return the item removed or null if the item was not found
 
+console.log("8. removeItem");
 function removeItem(item){
-    let itemToBeRemoved = basket.indexOf(item)
-    if(basket.includes(item) === true){
-    basket.splice(itemToBeRemoved);
-    return itemToBeRemoved;
+    if(basket.indexOf(item) < (basket.length - 1)){
+        basket.splice(basket.indexOf(item), 1);
+        return item;
         }
     else {
         return null;
     }
 }
 
-console.log(removeItem("bananas"));
+console.log("Removed this item from cart:", removeItem("bananas"));
+console.log("Cart now contains:", basket);
+console.log(removeItem("chips"));
 
 
 
-//Take an input parameter for a string item
-//Use Array.indexOf to find the index of the first matching item in the basket.
-//Use Array.splice to remove the first matching item from the basket.
-//Return the item removed or null if the item was not found
