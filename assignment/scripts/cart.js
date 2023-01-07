@@ -6,6 +6,13 @@ console.log('***** Cart Functions *****');
 let basket = [];
 console.log("1. basket array: ", basket);
 
+
+//. Add a global const named maxItems and set it to 5. 
+console.log("The maximum number of items that can go in the cart:")
+
+const maxItems = 5;
+console.log(maxItems);
+
 // 2. Create a function called `addItem`. It should:
 //- take an input parameter for a string `item`
 //- add the new item to the global array `basket`. 
@@ -52,17 +59,13 @@ console.log("-----Stretch Goals-----")
 
 //Using functions in other functions!
 
-//5. Add a global const named maxItems and set it to 5.
 
-console.log("5. The maximum number of items that can go in the cart:")
-
-const maxItems = 5
-console.log(maxItems);
 
 //6. Create a function called isFull(). It should:
 //return false if the basket contains less than max number of items
 //return true otherwise (equal or more than maxItems)
 console.log("6. Seeing if the cart isFull")
+
 
 function isFull(){
     if(basket.length < maxItems){
@@ -72,7 +75,7 @@ function isFull(){
         return true
     }
 }
-console.log("Is the basket full?", isFull(basket));
+console.log("Is the cart full?", isFull(basket));
 
 addItem("popcorn");
 addItem("frozen pizza");
@@ -80,21 +83,54 @@ addItem("bananas");
 addItem("mac & cheese");
 addItem("eggs");
 
-console.log("Is the basket full now?", isFull(basket));
-
-
+//when I haven't messed with question 7, this works, it returns true. after doing the question 7 stuff it returns false 
+console.log("Is the cart full now?", isFull(basket));
 
 //7. Update the required addItem function to:
-//Use the isFull function to prevent more than maxItems from being added to the basket.
 //If an item was added to the array, return true
 //If there was no room and the item could not be added return false
 
+function addItem(item){
+//Use the isFull function to prevent more than maxItems from being added to the basket.
+    if(isFull(basket) === false) {
+        basket.push(item);
+        console.log('Added', item , 'to cart');
+        return true;
+        } //end cart is not full yet
+    else if(isFull(basket) === true){
+        console.log("Item could not be added because cart is full");
+        return false;
+    } //end cart is full 
+} //end addItem 
 
+
+addItem("pancake mix"); 
+
+console.log("Is the cart full now?", isFull(basket));
+console.log("Removed this item:", basket.pop());
+console.log("Is the cart full now?", isFull(basket));
+console.log("Can I add something else now?", addItem("pancake mix"));
 
 
 //Using Array built-in functions!
 
-//Create a function called removeItem. It should:
+//8. Create a function called removeItem. It should:
+
+function removeItem(item){
+    let itemToBeRemoved = basket.indexOf(item)
+    if(basket.includes(item) === true){
+    basket.splice(itemToBeRemoved);
+    return itemToBeRemoved;
+        }
+    else {
+        return null;
+    }
+}
+
+console.log(removeItem("bananas"));
+
+
+
 //Take an input parameter for a string item
 //Use Array.indexOf to find the index of the first matching item in the basket.
 //Use Array.splice to remove the first matching item from the basket.
