@@ -122,7 +122,7 @@ console.log("Cart is now", basket);
 
 console.log("8. removeItem");
 function removeItem(item){
-    if(basket.indexOf(item) < (basket.length - 1)){
+    if(basket.indexOf(item) < (basket.length - 1) && basket.indexOf(item) >= 0){
         basket.splice(basket.indexOf(item), 1);
         return item;
         }
@@ -133,7 +133,7 @@ function removeItem(item){
 
 console.log("Removed this item from cart:", removeItem("bananas"));
 console.log("Cart now contains:", basket);
-console.log(removeItem("chips"));
+console.log(removeItem("cookie"));
 
 
 
